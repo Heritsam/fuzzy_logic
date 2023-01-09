@@ -1,5 +1,6 @@
 from const import *
 
+
 def fuzzify_worthiness_bad(value) -> float:
     a = WORTHINESS_BAD_A
     b = WORTHINESS_BAD_B
@@ -20,13 +21,14 @@ def fuzzify_worthiness_bad(value) -> float:
 
     return 0
 
+
 def fuzzify_worthiness_good(value) -> float:
     a = WORTHINESS_GOOD_A
     b = WORTHINESS_GOOD_B
     c = WORTHINESS_GOOD_C
     d = WORTHINESS_GOOD_D
 
-    if value <= a or value >= d:
+    if value <= a or value > d:
         return 0
 
     if a < value < b:
@@ -40,6 +42,7 @@ def fuzzify_worthiness_good(value) -> float:
 
     return 0
 
+
 def fuzzify_worthiness_excellent(value) -> float:
     a = WORTHINESS_EXCELLENT_A
     b = WORTHINESS_EXCELLENT_B
@@ -52,7 +55,7 @@ def fuzzify_worthiness_excellent(value) -> float:
     if b <= value <= c:
         return 1
 
-    if c < value<= d:
+    if c < value <= d:
         return -(value - d) / (d - c)
 
     return 0

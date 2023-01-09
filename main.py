@@ -25,6 +25,8 @@ def main():
     df['excellent'] = np.round(df['excellent'], 2)
     df['defuzzification'] = np.round(df['defuzzification'], 2)
 
+    df = df.head()
+
     df.to_excel('sheets/output.xlsx', index=False)
     print(df)
 
